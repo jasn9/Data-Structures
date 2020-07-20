@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func Example()  {
+func StackExample()  {
 	s := stack.ArrayStack{S: make([]interface{}, 0, 0)}
 	val, err := stack.Pop(&s)
 	if err==nil{

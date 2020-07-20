@@ -3,5 +3,6 @@ package main
 import "DataStructures/example"
 
 func main()  {
-	example.Example()
+	//example.StackExample()
+	example.ListExample()
 }
