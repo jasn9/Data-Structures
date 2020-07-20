@@ -2,8 +2,10 @@ package stack
 
 import "fmt"
 
-type Stack struct {
-	stack []int
+type Stack interface {
+	IsEmpty() bool
+	RemoveFromLast() interface{}
+	AddAtLast(a interface{}) error
 }
 
 type Error string
@@ -12,21 +14,14 @@ func (err Error) Error() string{
 	return fmt.Sprintf("StackError: %s",string(err))
 }
 
-func (s *Stack) Pop() (int, error) {
-	if len(s.stack)==0{
+func Pop(stack Stack) (interface{}, error) {
+	 if stack.IsEmpty(){
 		return -1, Error("stack Underflow")
 	}
-	ele := s.stack[len(s.stack)-1]
-	s.stack = s.stack[:len(s.stack)-1]
-	return ele, nil
+	return stack.RemoveFromLast(), nil
 }
 
-func (s *Stack) Push(a int) error {
-	s.stack = append(s.stack, a)
-	return nil
-}
-
-func CreateStack(a []int) Stack {
-	return Stack{a}
+func Push(stack Stack,a interface{}) error {
+	return stack.AddAtLast(a)
 }
 
