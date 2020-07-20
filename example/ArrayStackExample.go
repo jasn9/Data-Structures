@@ -6,7 +6,7 @@ import (
 )
 
 func Example()  {
-	s := stack.ArrayStack{make([]interface{}, 0, 0)}
+	s := stack.ArrayStack{S: make([]interface{}, 0, 0)}
 	val, err := stack.Pop(&s)
 	if err==nil{
 		fmt.Println(val)

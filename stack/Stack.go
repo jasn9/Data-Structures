@@ -4,8 +4,8 @@ import "fmt"
 
 type Stack interface {
 	IsEmpty() bool
-	RemoveFromLast() interface{}
-	AddAtLast(a interface{}) error
+	RemoveLastElementAdded() interface{}
+	AddElement(a interface{}) error
 }
 
 type Error string
@@ -18,10 +18,10 @@ func Pop(stack Stack) (interface{}, error) {
 	 if stack.IsEmpty(){
 		return -1, Error("stack Underflow")
 	}
-	return stack.RemoveFromLast(), nil
+	return stack.RemoveLastElementAdded(), nil
 }
 
 func Push(stack Stack,a interface{}) error {
-	return stack.AddAtLast(a)
+	return stack.AddElement(a)
 }
 
