@@ -12,3 +12,7 @@ func (list *DefaultLinkList) GetNext()  *LinkList {
 func (list *DefaultLinkList) SetNext(a *LinkList)  {
 	list.Next = a
 }
+
+func (list *DefaultLinkList) CreateNode(a interface{}) LinkList{
+	return &DefaultLinkList{a, nil}
+}
